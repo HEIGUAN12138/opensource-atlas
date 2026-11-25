@@ -37,36 +37,31 @@
     </div>
   </header>
 
-  <div class="layout">
-    <aside class="sidebar" aria-label="业务领域导航">
-      <p class="side-label">业务领域</p>
-      <nav id="catNav" class="cat-nav"></nav>
-      <div class="side-stats">
-        <div class="stat-row"><span>仓库</span><b id="statRepos">0</b></div>
-        <div class="stat-row"><span>领域</span><b id="statCats">0</b></div>
-        <p class="updated">更新于 <time id="updated"></time></p>
-      </div>
-    </aside>
-
-    <main class="main">
-      <div class="hero">
-        <p class="eyebrow">Repository Index</p>
-        <h1>优质开源项目</h1>
-        <p class="hero-sub">按业务领域整理，卡片直达我自己的 fork / 镜像仓库；<a href="https://heiguan12138.github.io/menav/?page=bookmarks" target="_blank" rel="noreferrer">网址导航站</a> 仍在另一边。</p>
-      </div>
-
-      <div id="content" class="content"></div>
-      <div id="empty" class="empty" hidden>
-        <p>没有找到匹配的仓库</p>
-        <button type="button" id="resetBtn" class="text-btn">清空搜索</button>
-      </div>
-
-      <footer class="page-foot">
-        <span>共 <b id="footCount">0</b> 个仓库 · 持续补充</span>
-        <a href="https://github.com/HEIGUAN12138/opensource-atlas" target="_blank" rel="noreferrer">本站源码 / 提需求 ↗</a>
-      </footer>
-    </main>
+  <div class="catbar">
+    <p class="side-label">业务领域</p>
+    <nav id="catNav" class="cat-nav" aria-label="业务领域导航"></nav>
+    <div class="catbar-meta"><b id="statRepos">0</b> 仓库 · <b id="statCats">0</b> 领域</div>
   </div>
+
+  <main class="main">
+    <div class="hero">
+      <p class="eyebrow">Repository Index</p>
+      <h1>优质开源项目</h1>
+      <p class="hero-sub">按业务领域整理，卡片直达我自己的 fork / 镜像仓库；<a href="https://heiguan12138.github.io/menav/?page=bookmarks" target="_blank" rel="noreferrer">网址导航站</a> 仍在另一边。</p>
+    </div>
+
+    <div id="content" class="content"></div>
+    <div id="empty" class="empty" hidden>
+      <p>没有找到匹配的仓库</p>
+      <button type="button" id="resetBtn" class="text-btn">清空搜索</button>
+    </div>
+
+    <footer class="page-foot">
+      <span>共 <b id="footCount">0</b> 个仓库 · 持续补充</span>
+      <span>更新于 <time id="updated"></time></span>
+      <a href="https://github.com/HEIGUAN12138/opensource-atlas" target="_blank" rel="noreferrer">本站源码 / 提需求 ↗</a>
+    </footer>
+  </main>
 
   <script src="data/repos.js"></script>
   <script src="assets/app.js"></script>

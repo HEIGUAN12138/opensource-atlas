@@ -32,7 +32,6 @@
 
   var KIND_LABEL = { fork: "Fork", mirror: "镜像", link: "外链" };
 
-  var mainEl = $(".main");
   var contentEl = $("#content");
   var emptyEl = $("#empty");
   var navEl = $("#catNav");
@@ -155,10 +154,10 @@
       ticking = false;
       var sections = $$(".section", contentEl);
       if (!sections.length) return;
-      var top = mainEl.scrollTop + 120;
+      var top = window.scrollY + 160;
       var current = sections[0];
       sections.forEach(function (s) {
-        if (s.offsetTop <= top) current = s;
+        if (s.getBoundingClientRect().top + window.scrollY <= top) current = s;
       });
       $$(".cat-link", navEl).forEach(function (a) {
         a.classList.toggle("active", a.getAttribute("data-cat") === current.id);
@@ -169,11 +168,8 @@
   function scrollToCat(id) {
     var target = document.getElementById(id);
     if (!target) return;
-    var offset = target.offsetTop - 16;
-    mainEl.scrollTo({ top: offset, behavior: "smooth" });
-    if (window.matchMedia("(max-width: 860px)").matches) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    var y = target.getBoundingClientRect().top + window.scrollY - 128;
+    window.scrollTo({ top: y, behavior: "smooth" });
   }
 
   function setTheme(theme) {
@@ -222,7 +218,7 @@
       searchEl.focus();
     });
 
-    mainEl.addEventListener("scroll", highlightActive, { passive: true });
+    window.addEventListener("scroll", highlightActive, { passive: true });
 
     document.addEventListener("keydown", function (e) {
       var tag = (e.target.tagName || "").toLowerCase();
